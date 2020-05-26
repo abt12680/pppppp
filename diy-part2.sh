@@ -9,7 +9,7 @@
 #============================================================
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.50.111/g' package/base-files/files/bin/config_generate
 
 #自定插件
 git clone https://github.com/openwrt-develop/luci-theme-atmaterial package/luci-theme-atmaterial
