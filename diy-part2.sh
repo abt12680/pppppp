@@ -25,6 +25,7 @@ git clone https://github.com/openwrt-develop/luci-theme-atmaterial package/luci-
 git clone https://github.com/apollo-ng/luci-theme-darkmatter.git package/luci-theme-darkmatter
 git clone https://github.com/rosywrt/luci-theme-rosy.git ./package/luci-theme-rosy
 
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
 git clone https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
