@@ -16,10 +16,10 @@ rm -Rf package/lean/luci-theme-argon
 
 #自定插件
 #主题
-
+git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06 package/luci-theme-argon
-git clone https://github.com/Leo-Jo-My/luci-theme-argon-light-mod package/luci-theme-argon-light-mod
-git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/luci-theme-Butterfly-dark
+#git clone https://github.com/Leo-Jo-My/luci-theme-argon-light-mod package/luci-theme-argon-light-mod
+#git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark  package/luci-theme-Butterfly-dark
 git clone https://github.com/Leo-Jo-My/luci-theme-argon-dark-mod package/luci-theme-argon-dark-mod
 git clone https://github.com/openwrt-develop/luci-theme-atmaterial package/luci-theme-atmaterial
 git clone https://github.com/apollo-ng/luci-theme-darkmatter.git package/luci-theme-darkmatter
