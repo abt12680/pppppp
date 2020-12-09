@@ -29,12 +29,12 @@ git clone https://github.com/rosywrt/luci-theme-rosy.git ./package/luci-theme-ro
 
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
-git clone https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
+git clone https://github.com/pymumu/luci-app-smartdns.git -d lede package/luci-app-smartdns
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git clone https://github.com/fw876/helloworld.git package/luci-app-ssr-plus
 #    https://github.com/sikucankao/DIY-Actions-OpenWrt-Nginx/blob/master/diy.sh
-svn co https://github.com/openwrt/luci/trunk/applications/luci-app-acme
-####svn co https://github.com/vernesong/OpenClash/branches/master/luci-app-openclash
+# svn co https://github.com/openwrt/luci/trunk/applications/luci-app-acme
+# svn co https://github.com/vernesong/OpenClash/branches/master/luci-app-openclash
 git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
 
 # Add OpenClash
@@ -43,7 +43,10 @@ git clone --depth=1 -b master https://github.com/vernesong/OpenClash
 #  OpenClash
 echo 'CONFIG_PACKAGE_luci-app-openclash=y' >> .config
 echo 'CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y'  >> .config
-
+#  adguardhome
+echo 'CONFIG_PACKAGE_luci-app-adguardhome=y' >> .config
+#  smartdns
+echo 'CONFIG_PACKAGE_luci-app-smartdns=y' >> .config
 
 #  luci-app-clash
 echo 'CONFIG_PACKAGE_luci-app-clash=y' >> .config
