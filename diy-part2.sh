@@ -43,6 +43,15 @@ git clone --depth=1 -b master https://github.com/vernesong/OpenClash
 #  OpenClash
 echo 'CONFIG_PACKAGE_luci-app-openclash=y' >> .config
 echo 'CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y'  >> .config
+
+#openclash coe
+curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/releases/download/Clash/clash-"$CPU_MODEL".tar.gz -o /tmp/clash.tar.gz
+tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
+chmod +x /tmp/clash >/dev/null 2>&1
+mkdir -p .../package/luci-app-openclash/files/etc/openclash/core
+mv /tmp/clash .../package/luci-app-openclash/files/etc/openclash/core/clash >/dev/null 2>&1
+rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
+
 #  adguardhome
 echo 'CONFIG_PACKAGE_luci-app-adguardhome=y' >> .config
 #  smartdns
@@ -54,7 +63,44 @@ echo 'CONFIG_PACKAGE_luci-app-clash=y' >> .config
 #CONFIG_PACKAGE_luci-app-acme=y
 echo 'CONFIG_PACKAGE_luci-app-acme=y' >> .config
 
+# themes#
+echo 'CONFIG_PACKAGE_luci-theme-darkmatter=y' >> .config
+echo 'CONFIG_PACKAGE_luci-theme-rosy=y' >> .config	
+echo 'CONFIG_PACKAGE_luci-theme-atmaterial=y' >> .config
+echo 'CONFIG_PACKAGE_luci-theme-argon-dark-mod=y' >> .config	
+#CONFIG_PACKAGE_luci-theme-argon-light-mod=y	
+echo 'CONFIG_PACKAGE_luci-theme-bootstrap=y' >> .config	
+echo 'CONFIG_PACKAGE_luci-theme-bootstrap-mod=y' >> .config	
+#CONFIG_PACKAGE_luci-theme-Butterfly-dark' >> .config	
+echo 'CONFIG_PACKAGE_luci-theme-argon=y' >> .config
+echo 'CONFIG_PACKAGE_luci-theme-bootstrap=y' >> .config
+echo 'CONFIG_PACKAGE_luci-theme-freifunk-generic=y' >> .config
+echo 'CONFIG_PACKAGE_luci-theme-material=y' >> .config
+echo 'CONFIG_PACKAGE_luci-theme-netgear=y' >> .config
 
+# 追加内容
+cat >> .config <<EOF
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_coreutils=y
+CONFIG_PACKAGE_coreutils-nohup=y
+CONFIG_PACKAGE_jsonfilter=y
+CONFIG_DEFAULT_ca-certificates=y
+CONFIG_PACKAGE_dnsmasq_full_ipset=y
+CONFIG_PACKAGE_dnsmasq-full=y
+CONFIG_PACKAGE_iptables-mod-tproxy=y
+CONFIG_PACKAGE_ip-full=y
+CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_iptables-mod-tproxy=y
+CONFIG_PACKAGE_iptables-mod-extra=y
+CONFIG_PACKAGE_libcap=y
+CONFIG_PACKAGE_libcap-bin=y
+CONFIG_PACKAGE_ruby=y
+CONFIG_PACKAGE_ruby-yaml=y
+CONFIG_PACKAGE_ip6tables-mod-nat=y
+# IPv6支持:
+CONFIG_PACKAGE_ipv6helper=y
+CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+EOF
 
 #更新feeds
 ./scripts/feeds update -a
