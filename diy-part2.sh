@@ -42,7 +42,7 @@ git clone --depth=1 -b master https://github.com/vernesong/OpenClash
 
 #  OpenClash
 echo 'CONFIG_PACKAGE_luci-app-openclash=y' >> .config
-echo 'CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y'  >> .config
+echo 'CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y' >> .config
 
 #openclash coe
 curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/releases/download/Clash/clash-"$CPU_MODEL".tar.gz -o /tmp/clash.tar.gz
@@ -63,12 +63,12 @@ echo 'CONFIG_PACKAGE_luci-app-clash=y' >> .config
 #CONFIG_PACKAGE_luci-app-acme=y
 echo 'CONFIG_PACKAGE_luci-app-acme=y' >> .config
 
-# themes#
+# themes
 echo 'CONFIG_PACKAGE_luci-theme-darkmatter=y' >> .config
 echo 'CONFIG_PACKAGE_luci-theme-rosy=y' >> .config	
 echo 'CONFIG_PACKAGE_luci-theme-atmaterial=y' >> .config
 echo 'CONFIG_PACKAGE_luci-theme-argon-dark-mod=y' >> .config	
-#CONFIG_PACKAGE_luci-theme-argon-light-mod=y	
+#CONFIG_PACKAGE_luci-theme-argon-light-mod=y' >> .config	
 echo 'CONFIG_PACKAGE_luci-theme-bootstrap=y' >> .config	
 echo 'CONFIG_PACKAGE_luci-theme-bootstrap-mod=y' >> .config	
 #CONFIG_PACKAGE_luci-theme-Butterfly-dark' >> .config	
