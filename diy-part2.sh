@@ -37,6 +37,23 @@ git clone https://github.com/fw876/helloworld.git package/luci-app-ssr-plus
 # svn co https://github.com/vernesong/OpenClash/branches/master/luci-app-openclash
 git clone https://github.com/frainzy1477/luci-app-clash package/luci-app-clash
 
+# themes
+cat >> .config <<EOF
+CONFIG_PACKAGE_luci-theme-darkmatter=y
+CONFIG_PACKAGE_luci-theme-rosy=y	
+CONFIG_PACKAGE_luci-theme-atmaterial=y
+CONFIG_PACKAGE_luci-theme-argon-dark-mod=y	
+#CONFIG_PACKAGE_luci-theme-argon-light-mod=y	
+CONFIG_PACKAGE_luci-theme-bootstrap=y	
+CONFIG_PACKAGE_luci-theme-bootstrap-mod=y	
+#CONFIG_PACKAGE_luci-theme-Butterfly-dark	
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-theme-bootstrap=y
+CONFIG_PACKAGE_luci-theme-freifunk-generic=y
+CONFIG_PACKAGE_luci-theme-material=y
+CONFIG_PACKAGE_luci-theme-netgear=y
+EOF
+
 # Add OpenClash
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash
 
@@ -63,20 +80,6 @@ echo 'CONFIG_PACKAGE_luci-app-clash=y' >> .config
 #CONFIG_PACKAGE_luci-app-acme=y
 echo 'CONFIG_PACKAGE_luci-app-acme=y' >> .config
 
-# themes
-echo 'CONFIG_PACKAGE_luci-theme-darkmatter=y' >> .config
-echo 'CONFIG_PACKAGE_luci-theme-rosy=y' >> .config	
-echo 'CONFIG_PACKAGE_luci-theme-atmaterial=y' >> .config
-echo 'CONFIG_PACKAGE_luci-theme-argon-dark-mod=y' >> .config	
-#CONFIG_PACKAGE_luci-theme-argon-light-mod=y' >> .config	
-echo 'CONFIG_PACKAGE_luci-theme-bootstrap=y' >> .config	
-echo 'CONFIG_PACKAGE_luci-theme-bootstrap-mod=y' >> .config	
-#CONFIG_PACKAGE_luci-theme-Butterfly-dark' >> .config	
-echo 'CONFIG_PACKAGE_luci-theme-argon=y' >> .config
-echo 'CONFIG_PACKAGE_luci-theme-bootstrap=y' >> .config
-echo 'CONFIG_PACKAGE_luci-theme-freifunk-generic=y' >> .config
-echo 'CONFIG_PACKAGE_luci-theme-material=y' >> .config
-echo 'CONFIG_PACKAGE_luci-theme-netgear=y' >> .config
 
 # 追加内容
 cat >> .config <<EOF
