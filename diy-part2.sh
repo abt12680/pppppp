@@ -8,6 +8,7 @@
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
+# 参考 https://github.com/huangqian8/Cloud-N1-OpenWrt
 
 
 # Modify default IP
@@ -232,10 +233,6 @@ rm -rf theme-temp
 default_theme='opentomcat'
 sed -i "s/bootstrap/$default_theme/g" feeds/luci/modules/luci-base/root/etc/config/luci
 
-
-# Add OpenClash
-# git clone --depth=1 -b master https://github.com/vernesong/OpenClash
-
 #  OpenClash
 echo 'CONFIG_PACKAGE_luci-app-openclash=y' >> .config
 echo 'CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y' >> .config
@@ -271,12 +268,12 @@ EOF
 rm -rf package-temp
 
 #openclash coe
-curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/releases/download/Clash/clash-"$CPU_MODEL".tar.gz -o /tmp/clash.tar.gz
-tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
-chmod +x /tmp/clash >/dev/null 2>&1
-mkdir -p .../package/lean/luci-app-openclash/files/etc/openclash/core
-mv /tmp/clash .../package/lean/luci-app-openclash/files/etc/openclash/core/clash >/dev/null 2>&1
-rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
+#curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/releases/download/Clash/clash-"$CPU_MODEL".tar.gz -o /tmp/clash.tar.gz
+#tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
+#chmod +x /tmp/clash >/dev/null 2>&1
+#mkdir -p .../package/lean/luci-app-openclash/files/etc/openclash/core
+#mv /tmp/clash .../package/lean/luci-app-openclash/files/etc/openclash/core/clash >/dev/null 2>&1
+#rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
 
 #  adguardhome
 echo 'CONFIG_PACKAGE_luci-app-adguardhome=y' >> .config
@@ -290,15 +287,15 @@ echo 'CONFIG_PACKAGE_luci-app-clash=y' >> .config
 echo 'CONFIG_PACKAGE_luci-app-acme=y' >> .config
 
 # Add luci-app-vssr
-git clone https://github.com/jerrykuku/lua-maxminddb.git package-temp/lua-maxminddb
-git clone https://github.com/jerrykuku/luci-app-vssr.git package-temp/luci-app-vssr
-mv -f package-temp/lua-maxminddb package/lean/
-mv -f package-temp/luci-app-vssr package/lean/
-cat >> .config <<EOF
-CONFIG_PACKAGE_lua-maxminddb=y
-CONFIG_PACKAGE_luci-app-vssr=y
-EOF
-rm -rf package-temp
+#git clone https://github.com/jerrykuku/lua-maxminddb.git package-temp/lua-maxminddb
+#git clone https://github.com/jerrykuku/luci-app-vssr.git package-temp/luci-app-vssr
+#mv -f package-temp/lua-maxminddb package/lean/
+#mv -f package-temp/luci-app-vssr package/lean/
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_lua-maxminddb=y
+#CONFIG_PACKAGE_luci-app-vssr=y
+#EOF
+#rm -rf package-temp
 
 
 # IPv6支持:
