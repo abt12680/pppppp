@@ -72,27 +72,30 @@ sed -i "s/bootstrap/$default_theme/g" feeds/luci/modules/luci-base/root/etc/conf
 
 #  OpenClash
 echo 'CONFIG_PACKAGE_luci-app-openclash=y' >> .config
-echo 'CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y' >> .config
+#echo 'CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y' >> .config
 
 # Add luci-app-openclash
 git clone https://github.com/vernesong/OpenClash.git package-temp
 mv -f package-temp/luci-app-openclash package/lean/
 cat >> .config <<EOF
-CONFIG_PACKAGE_iptables=y
+CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_coreutils=y
 CONFIG_PACKAGE_coreutils-nohup=y
-CONFIG_PACKAGE_curl=y
-CONFIG_PACKAGE_iptables-mod-tproxy=y
-CONFIG_PACKAGE_kmod-ip6tables=y
-CONFIG_PACKAGE_kmod-ipt-tproxy=y
-CONFIG_PACKAGE_kmod-nf-ipt6=y
-CONFIG_PACKAGE_kmod-nf-reject6=y
-CONFIG_PACKAGE_libcurl=y
-CONFIG_PACKAGE_libmbedtls=y
-CONFIG_PACKAGE_libncurses=y
-CONFIG_PACKAGE_libreadline=y
-CONFIG_PACKAGE_luci-app-openclash=y
-CONFIG_PACKAGE_terminfo=y
+CONFIG_PACKAGE_jsonfilter=y
+CONFIG_DEFAULT_ca-certificates=y	
+CONFIG_PACKAGE_dnsmasq_full_ipset=y	
+CONFIG_PACKAGE_dnsmasq-full=y	
+CONFIG_PACKAGE_iptables-mod-tproxy=y	
+CONFIG_PACKAGE_ip-full=y	
+CONFIG_PACKAGE_ipset=y	
+CONFIG_PACKAGE_iptables-mod-tproxy=y	
+CONFIG_PACKAGE_iptables-mod-extra=y	
+CONFIG_PACKAGE_libcap=y	
+CONFIG_PACKAGE_libcap-bin=y	
+CONFIG_PACKAGE_ruby=y	
+CONFIG_PACKAGE_ruby-yaml=y	
+CONFIG_PACKAGE_ip6tables-mod-nat=y
+CONFIG_PACKAGE_iptables=y
 EOF
 rm -rf package-temp
 
